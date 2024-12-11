@@ -1,0 +1,77 @@
+.AboutTitle {
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.AboutText {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.AboutButton {
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 8px 16px;
+    text-transform: none;
+    transition: transform 0.3s ease;
+}
+
+.AboutButton:hover {
+    background-color: "#333";
+    transform: scale(1.2);
+}
+
+.AboutLine {
+    display: block;
+    margin: -70px auto 10px;
+}
+
+
+@media screen and (max-width: 480px) {
+    .AboutTitle {
+      font-size: 32px;
+      margin-top: 15px;
+    }
+  
+    .AboutLine{
+        width: 170px;
+        height: 20px;
+        margin: -50px auto 5px;
+    }
+  
+    .AboutText {
+      font-size: 20px;
+      margin: 15px 0;
+    }
+  
+    .AboutButton {
+      margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .AboutTitle {
+      font-size: 45px;
+    }
+
+    .AboutLine {
+        width: 170px;
+        height: 20px;
+        margin: -50px auto 5px;
+    }
+  
+    .AboutText {
+      font-size: 24px;
+      margin: 15px 0;
+    }
+  
+    .ButtonJoin {
+      margin-top: 20px;
+    }
+  }

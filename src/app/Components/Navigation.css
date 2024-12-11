@@ -1,0 +1,45 @@
+@media (max-width: 1159px) {
+    .motionSidebar {
+        background-color: white; /* For small screens */
+    }
+}
+
+@media (min-width: 1160px) {
+    .motionSidebar {
+        background-color: transparent; /* For larger screens */
+    }
+}
+
+@media (max-width: 860px) {
+    .NavButton {
+        bottom: 80px;
+        right:15px;
+        width:50px;
+        height: 50px;
+    }
+    .NavImage {
+        width:100px;
+        height: 50px;
+    }
+    .motionSidebar{
+        bottom: 150px;
+        right: 15px;
+    }
+}
+
+@media (min-width: 860px) {
+    .NavButton {
+        bottom: 80px;
+        right:80px;
+        width:50px;
+        height: 50px;
+    }
+    .NavImage {
+        width:140px;
+        height: 80px;
+    }
+    .motionSidebar{
+        bottom: 150px;
+        right: 90px;
+    }
+}
