@@ -78,7 +78,7 @@ function Projects() {
         <motion.div
             initial={{ clipPath: 'inset(0 100% 0 0)' }} // Start with the element fully hidden
             animate={{ clipPath: 'inset(0 0 0 0)' }}    // Gradually reveal the entire element
-            transition={{ duration: 3, ease: 'easeInOut' }}
+            transition={{ duration: 4, ease: 'easeInOut' }}
         >
             <Image
                 src="/assets/Images/Our Works Line.png"
