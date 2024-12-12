@@ -2,7 +2,6 @@
 import styles from "./page.module.css";
 import Landing from "./Components/Landing";
 import { useEffect, useState } from "react";
-import Footer from "./Components/Footer";
 import Loading from "./Components/Loading";
 
 export default function Home() {
@@ -22,7 +21,6 @@ export default function Home() {
   ) : (
     <>
       <Landing />
-      <Footer />
     </>
   );
 }

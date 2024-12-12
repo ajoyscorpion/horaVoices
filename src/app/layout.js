@@ -1,6 +1,7 @@
 
 import React from "react";
 import "./globals.css";
+import Footer from "./Components/Footer";
 
 export const metadata = {
   title: "Hora Voices",
@@ -18,7 +19,10 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="icon" href="/HoraIcon.jpg" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
