@@ -2,6 +2,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import "./Footer.css"
+import { Caveat } from "next/font/google";
+
+const caveat = Caveat({
+    subsets: ["latin"],
+    weight: ["400", "700"],
+});
 
 function Footer() {
 
@@ -36,7 +42,14 @@ function Footer() {
             )}
             
         </div>
-        <p>Hora Voices &copy; 2024</p>
+        <p
+            style={{
+                fontFamily: caveat.style.fontFamily,
+                fontWeight:"bold"
+            }}
+        >
+            Hora Voices &copy; 2024
+        </p>
     </div>
   )
 }

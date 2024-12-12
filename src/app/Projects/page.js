@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import { Caveat } from "next/font/google";
 import { Card, Grid2, Typography } from '@mui/material';
@@ -6,6 +7,7 @@ import Link from 'next/link';
 import Navigation from '../Components/Navigation';
 import styles from './page.module.css'
 import Divider from '@mui/material/Divider';
+import { motion } from "framer-motion";
 
 const caveat = Caveat({
     subsets: ["latin"],
@@ -58,7 +60,7 @@ function Projects() {
         }} 
     >
         {/* Project Title */}
-        <p
+        <motion.p
             className='About-Title'
             style={{
                 fontFamily: caveat.style.fontFamily,
@@ -66,17 +68,27 @@ function Projects() {
                 fontWeight:"bold",
                 textAlign:'center'
             }}
+            initial={{ y: 0, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
         >
             Our Works
-        </p>
-
-        <Image
-            src="/assets/Images/Our Works Line.png"
-            width={170}
-            height={30}
-            alt="aboutLine"
-            style={{ display: "block", margin: "-60px auto 30px" }} 
-        />
+        </motion.p>
+        
+        <motion.div
+            initial={{ clipPath: 'inset(0 100% 0 0)' }} // Start with the element fully hidden
+            animate={{ clipPath: 'inset(0 0 0 0)' }}    // Gradually reveal the entire element
+            transition={{ duration: 3, ease: 'easeInOut' }}
+        >
+            <Image
+                src="/assets/Images/Our Works Line.png"
+                width={170}
+                height={30}
+                alt="aboutLine"
+                style={{ display: "block", margin: "-60px auto 30px" }} 
+            />
+        </motion.div>
+        
 
         
         <Grid2 container direction="column"  >
@@ -93,6 +105,10 @@ function Projects() {
                         flexDirection: 
                             index % 2 === 0 ? "row" : "row-reverse",
                     }}
+                    component={motion.div}
+                    initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: index * 0.3 }}
                 >
                     {/* Image Card */}
                     <Card
@@ -177,24 +193,31 @@ function Projects() {
                                 {work.description}
                             </Typography>
 
-                            <Link
-                                className={styles.ContentLink}
-                                href={work.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                style={{
-                                    display: "flex",
-                                    justifyContent: index % 2 === 0 ? "end" : "start",
-                                    marginTop: "10px",
-                                }}
+                            <motion.div
+                                initial={{ opacity: 0, y: 50 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ type: "spring", stiffness: 400, delay:1.3 }}                
                             >
-                                <Image
-                                    src="/assets/Images/youtube.png"
-                                    width={30}
-                                    height={30}
-                                    alt={`${work.title} Youtube Link`}
-                                />
-                            </Link>
+                                <Link
+                                    className={styles.ContentLink}
+                                    href={work.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{
+                                        display: "flex",
+                                        justifyContent: index % 2 === 0 ? "end" : "start",
+                                        marginTop: "10px",
+                                    }}
+                                >
+                                    <Image
+                                        src="/assets/Images/youtube.png"
+                                        width={30}
+                                        height={30}
+                                        alt={`${work.title} Youtube Link`}
+                                    />
+                                </Link>
+                            </motion.div> 
+                            
                         </Grid2>
                     </Card>
                     <Divider sx={{ width: "70%", my: 5, display: { xs: "block", sm: "none" }}} />

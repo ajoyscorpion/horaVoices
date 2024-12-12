@@ -6,6 +6,7 @@ import "./Landing.css"
 import Badge from '@mui/material/Badge';
 import { Caveat } from "next/font/google";
 import { styled } from '@mui/material/styles';
+import { motion } from "motion/react"
 
 const caveat = Caveat({
   subsets: ["latin"],
@@ -25,16 +26,36 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 function Landing() {
   return (
     <div className="container">
-      <Image
-        src="/assets/Images/Hora.png"
-        width="600"
-        height="450"
-        alt="Hora Title Image"
-        style={{
-          marginTop:"100px"
+      <motion.div
+        animate= {{
+          x: [0, 3, -3, 6, -6, 0], // Random keyframes for horizontal movement
+          y: [0, -3, 3, -6, 6, 0], // Random keyframes for vertical movement
+          opacity:1
         }}
-      />
-      <div className="text-container">
+        transition={{
+          duration: 10, // Duration of one full cycle (10 seconds)
+          repeat: Infinity, // Infinite loop
+          ease: "easeInOut", // Smooth easing
+        }}
+      >
+        <Image
+          src="/assets/Images/Hora.png"
+          width="600"
+          height="450"
+          alt="Hora Title Image"
+          style={{
+            marginTop:"100px"
+          }}
+        />
+      </motion.div>
+      
+      <motion.div 
+        className="text-container"
+        size={{xs:8,sm:8,md:8,lg:5}}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.03 }}
+      >
         <Link href="/About" className="text-item" style={{fontFamily:caveat.style.fontFamily}}>
           About
         </Link>
@@ -52,7 +73,7 @@ function Landing() {
             Join Us?
           </Link>
         </StyledBadge>
-      </div>
+      </motion.div>
     </div>
   )
 }
